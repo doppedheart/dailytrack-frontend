@@ -127,18 +127,12 @@ export function CreateNFTView() {
       <div className="space-y-6">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-300">
               NFT Image
             </label>
-            {/* <ImageUpload
-              ref={fileInputRef}
-              previewUrl={metadata.image}
-              onImageChange={handleImageChange}
-            /> */}
-
             <div className="w-full">
               <label
-                className={`relative flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 ${
+                className={`relative flex flex-col items-center justify-center w-full h-64 border-2 border-dashed dark:border-white rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 ${
                   metadata.image ? "border-green-300" : "border-gray-300"
                 }`}
               >
@@ -160,12 +154,12 @@ export function CreateNFTView() {
                   />
                 ) : (
                   <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                    <Upload className="w-10 h-10 mb-3 text-gray-400" />
-                    <p className="mb-2 text-sm text-gray-500">
+                    <Upload className="w-10 h-10 mb-3 text-gray-400 dark:text-gray-200" />
+                    <p className="mb-2 text-sm text-gray-500 dark:text-gray-300">
                       <span className="font-semibold">Click to upload</span> or
                       drag and drop
                     </p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-500 dark:text-gray-300">
                       PNG, JPG, GIF (MAX. 10MB)
                     </p>
                   </div>
@@ -178,7 +172,7 @@ export function CreateNFTView() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-300">
               Name
             </label>
             <input
@@ -187,7 +181,7 @@ export function CreateNFTView() {
               onChange={(e) =>
                 setMetadata((prev) => ({ ...prev, name: e.target.value }))
               }
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border-2 border-dashed rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-gray-300"
               placeholder="Enter NFT name"
             />
             {errors.name && (
@@ -196,7 +190,7 @@ export function CreateNFTView() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Description
             </label>
             <textarea
@@ -208,7 +202,7 @@ export function CreateNFTView() {
                 }))
               }
               rows={4}
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border-2 border-dashed rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-gray-300"
               placeholder="Describe your NFT"
             />
             {errors.description && (
@@ -218,7 +212,7 @@ export function CreateNFTView() {
 
           <div>
             <div className="flex justify-between items-center mb-2">
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                 Attributes
               </label>
               <button
@@ -255,7 +249,9 @@ export function CreateNFTView() {
       </div>
 
       <div className="lg:sticky lg:top-8">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Preview</h2>
+        <h2 className="text-xl font-semibold text-gray-900 mb-4 dark:text-gray-300">
+          Preview
+        </h2>
         <NFTPreview metadata={metadata} />
       </div>
     </div>

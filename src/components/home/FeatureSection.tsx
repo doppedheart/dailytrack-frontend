@@ -34,7 +34,7 @@ export function FeatureSection() {
         {features.map((feature, index) => (
           <div
             key={index}
-            className="p-6 bg-white dark:bg-dark-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+            className="p-6 bg-white dark:bg-dark-800 rounded-xl shadow-lg hover:shadow-xl dark:hover:bg-dark-700 transition-shadow"
           >
             <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4">
               <feature.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />

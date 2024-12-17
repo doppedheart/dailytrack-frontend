@@ -7,7 +7,7 @@ export interface NFTMetadata {
     value: string;
   }>;
   price?: number;
-  listingId: number;
+  listingId?: number;
 }
 
 export interface FormErrors {

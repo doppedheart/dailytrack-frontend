@@ -185,29 +185,33 @@ export const DashboardView = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen p-6">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6 text-center">
+        <h1 className="text-3xl font-bold mb-6 text-center dark:text-white">
           NFT Marketplace Dashboard
         </h1>
         <div className="grid md:grid-cols-3 gap-4 mb-6">
           {/* Token Balance Card */}
-          <div className="bg-white shadow rounded-lg p-4">
+          <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-4">
             <div className="flex items-center mb-2">
-              <CreditCard className="mr-2 text-blue-500" />
-              <h2 className="text-xl font-semibold">Token Balance</h2>
+              <CreditCard className="mr-2 text-blue-500 dark:text-blue-200" />
+              <h2 className="text-xl font-semibold dark:text-white">
+                Token Balance
+              </h2>
             </div>
-            <p className="text-2xl font-bold">
+            <p className="text-2xl font-bold dark:text-slate-200">
               {tokenBalance || "Loading..."} {tokenSymbol}
             </p>
           </div>
 
           {/* Owned NFTs Card */}
-          <div className="bg-white shadow rounded-lg p-4">
+          <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-4">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center">
-                <Wallet className="mr-2 text-green-500" />
-                <h2 className="text-xl font-semibold">Owned NFTs</h2>
+                <Wallet className="mr-2 text-green-500 dark:text-green-300 " />
+                <h2 className="text-xl font-semibold dark:text-white">
+                  Owned NFTs
+                </h2>
               </div>
               <button
                 onClick={() => handleRefresh("ownedNFTs")}
@@ -216,15 +220,19 @@ export const DashboardView = () => {
                 <RefreshCw className="w-5 h-5" />
               </button>
             </div>
-            <p className="text-2xl font-bold">{ownedNFTs.length}</p>
+            <p className="text-2xl font-bold dark:text-slate-200">
+              {ownedNFTs.length}
+            </p>
           </div>
 
           {/* Listed NFTs Card */}
-          <div className="bg-white shadow rounded-lg p-4">
+          <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-4">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center">
-                <ListOrdered className="mr-2 text-purple-500" />
-                <h2 className="text-xl font-semibold">Listed NFTs</h2>
+                <ListOrdered className="mr-2 text-purple-500 dark:text-purple-300" />
+                <h2 className="text-xl font-semibold dark:text-white">
+                  Listed NFTs
+                </h2>
               </div>
               <button
                 onClick={() => handleRefresh("listedNFTs")}
@@ -233,29 +241,35 @@ export const DashboardView = () => {
                 <RefreshCw className="w-5 h-5" />
               </button>
             </div>
-            <p className="text-2xl font-bold">{listedNFTs.length}</p>
+            <p className="text-2xl font-bold dark:text-slate-200">
+              {listedNFTs.length}
+            </p>
           </div>
         </div>
 
         {/* Owned NFTs Grid */}
-        <div className="bg-white shadow rounded-lg p-4 mb-6">
-          <h2 className="text-2xl font-semibold mb-4">Your NFTs</h2>
+        <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-4 mb-6">
+          <h2 className="text-2xl font-semibold mb-4 dark:text-white">
+            Your NFTs
+          </h2>
           {ownedNFTs.length === 0 ? (
-            <p className="text-gray-500">No NFTs owned</p>
+            <p className="text-gray-500 dark:text-gray-200">No NFTs owned</p>
           ) : (
             <div className="grid md:grid-cols-4 gap-4">
               {ownedNFTs.map((nft) => (
                 <div
                   key={nft.tokenId}
-                  className="border rounded-lg overflow-hidden shadow-sm"
+                  className="border rounded-lg overflow-hidden shadow-sm dark:border-slate-700"
                 >
                   <img
                     src={nft.image.originalUrl}
                     alt={`NFT ${nft.tokenId}`}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-48 object-cover dark:text-white"
                   />
                   <div className="p-2">
-                    <p className="font-semibold">NFT #{nft.tokenId}</p>
+                    <p className="font-semibold dark:text-white">
+                      NFT #{nft.tokenId}
+                    </p>
                     <Dialog>
                       <DialogTrigger asChild>
                         <button className="w-full bg-blue-500 text-white py-1 rounded mt-2">
@@ -264,7 +278,9 @@ export const DashboardView = () => {
                       </DialogTrigger>
                       <DialogContent className="sm:max-w-md">
                         <DialogHeader>
-                          <DialogTitle>List Nft</DialogTitle>
+                          <DialogTitle className="dark:text-white">
+                            List Nft
+                          </DialogTitle>
                           <DialogDescription>
                             Set price for you nft in Harto tokens.
                           </DialogDescription>
@@ -277,7 +293,7 @@ export const DashboardView = () => {
                             <input
                               type="number"
                               defaultValue={price}
-                              className="px-3 py-2"
+                              className="px-3 py-2 dark:bg-slate-700  rounded-md dark:text-white"
                               onChange={(e) =>
                                 setPrice(parseInt(e.target.value))
                               }
@@ -305,17 +321,21 @@ export const DashboardView = () => {
         </div>
 
         {/* Listed NFTs Grid */}
-        <div className="bg-white shadow rounded-lg p-4">
-          <h2 className="text-2xl font-semibold mb-4">Your Listed NFTs</h2>
+        <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-4">
+          <h2 className="text-2xl font-semibold mb-4 dark:text-white">
+            Your Listed NFTs
+          </h2>
           {listedNFTs.length === 0 ? (
-            <p className="text-gray-500">No NFTs listed for sale</p>
+            <p className="text-gray-500 dark:text-gray-300">
+              No NFTs listed for sale
+            </p>
           ) : (
             <div className="">
               <button
-                className="bg-blue-400 text-white rounded-md py-2 px-4"
+                className="bg-blue-500 text-white rounded-md py-2 px-4"
                 onClick={toggleShowListedNfts}
               >
-                Show Listed nfts
+                {showListedNfts ? "Hide " : "Show"} Listed nfts
               </button>
               {showListedNfts ? <ListedNfts listedNFTs={listedNFTs} /> : null}
             </div>

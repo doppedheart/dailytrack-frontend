@@ -27,7 +27,7 @@ export function AttributeInput({
           placeholder="Trait (e.g., Color)"
           value={trait}
           onChange={(e) => onChange(index, "trait_type", e.target.value)}
-          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2 border-2 border-dashed rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-gray-300"
         />
       </div>
       <div className="flex-1">
@@ -36,7 +36,7 @@ export function AttributeInput({
           placeholder="Value (e.g., Blue)"
           value={value}
           onChange={(e) => onChange(index, "value", e.target.value)}
-          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2 border-2 border-dashed rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-gray-300"
         />
       </div>
       <button

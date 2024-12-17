@@ -4,8 +4,8 @@ export function HowItWorks() {
   const steps = [
     {
       icon: UserPlus,
-      title: "Create Account",
-      description: "Sign up and connect your wallet",
+      title: "Install Wallet",
+      description: "Create a wallet and connect",
     },
     {
       icon: Activity,
@@ -26,11 +26,13 @@ export function HowItWorks() {
 
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+      <h2
+        className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
+        id="learn-more"
+      >
         How It Works
       </h2>
       <div className="relative">
-        <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 dark:bg-gray-700 -translate-y-1/2 hidden md:block" />
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="relative">

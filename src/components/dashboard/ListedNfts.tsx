@@ -82,42 +82,45 @@ export const ListedNfts: FC<ListedNftsProps> = ({ listedNFTs }) => {
     }
   };
   return (
-    <div className="bg-white shadow rounded-lg p-4 mb-6">
-      <h2 className="text-2xl font-semibold mb-4">Your NFTs</h2>
+    <div className="bg-white dark:bg-gray-800 rounded-lg pt-4 mb-6">
       {loading ? (
-        <p className="text-gray-500">Loading NFTs...</p>
+        <p className="text-gray-500 dark:text-gray-300">Loading NFTs...</p>
       ) : listedNfts.length === 0 ? (
-        <p className="text-gray-500">No NFTs owned</p>
+        <p className="text-gray-500 dark:text-gray-300">No NFTs owned</p>
       ) : (
-        <div className="grid md:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-3 gap-4 pb-1">
           {listedNfts.map((nft, index) => (
             <div
               key={index}
-              className="border rounded-lg overflow-hidden shadow-sm"
+              className="border rounded-lg overflow-hidden shadow-sm dark:border-slate-700 "
             >
               <img
                 src={nft.image}
                 alt={`NFT ${listedNFTs[index].tokenId}`}
                 className="w-full h-48 object-cover"
               />
-              <div className="p-2">
-                <p className="font-semibold">
-                  NFT #{listedNFTs[index].tokenId}
+              <div className="p-2 flex flex-col justify-between h-1/2">
+                <p className="font-semibold dark:text-white">
+                  NFT #{listedNFTs[index].tokenId.toString()}
                 </p>
-                <p className="font-semibold">{nft.name}</p>
-                <p className="text-gray-500">{nft.description}</p>
-                <p className="text-gray-800 font-bold mt-2">
+                <p className="font-semibold dark:text-white">{nft.name}</p>
+                <p className="text-gray-500 dark:text-gray-300">
+                  {nft.description}
+                </p>
+                <p className="text-gray-800 font-bold mt-2 dark:text-gray-300">
                   Price: {listedNFTs[index].price.toString()} HTO
                 </p>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <button className="w-full bg-blue-500 te xt-white py-1 rounded mt-2">
+                    <button className="w-full bg-blue-500 te xt-white py-1 rounded mt-2 dark:text-white">
                       Cancel Listing
                     </button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-md">
                     <DialogHeader>
-                      <DialogTitle>Cancel Listing ?</DialogTitle>
+                      <DialogTitle className="dark:text-white">
+                        Cancel Listing ?
+                      </DialogTitle>
                       <DialogDescription>
                         Are you sure you wanted to cancel the listing?
                       </DialogDescription>
@@ -127,10 +130,10 @@ export const ListedNfts: FC<ListedNftsProps> = ({ listedNFTs }) => {
                       <DialogClose asChild>
                         <button
                           type="button"
-                          className="bg-blue-500 text-white py-1 px-4 rounded mt-2"
+                          className="bg-red-700 text-white py-2 px-4 rounded mt-2"
                           onClick={() => handleCancelListing(listedNFTs[index])}
                         >
-                          List Nft
+                          Cancel Nft Listing
                         </button>
                       </DialogClose>
                     </DialogFooter>
